@@ -1,0 +1,219 @@
+<html>
+ <style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Orbitron:wght@400;700&display=swap');
+  
+  :root {
+    --primary: #6200ea;
+    --secondary: #00b0ff;
+    --accent: #ff9100;
+    --dark: #121212;
+    --light: #f8f9fa;
+  }
+  
+  * {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--dark);
+    margin: 0;
+    line-height: 1.8;
+    color: var(--light);
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(98, 0, 234, 0.2) 0%, rgba(0, 176, 255, 0.2) 90%),
+      linear-gradient(135deg, #121212, #1a1a2e);
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+  }
+  
+
+.left-frame::-webkit-scrollbar,
+.right-frame::-webkit-scrollbar {
+  width: 8px;                
+}
+
+.left-frame::-webkit-scrollbar-track,
+.right-frame::-webkit-scrollbar-track {
+  background: var(--dark);    
+}
+
+.left-frame::-webkit-scrollbar-thumb,
+.right-frame::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);  
+  border: 2px solid var(--dark);        
+  border-radius: 10px;
+}
+
+.left-frame::-webkit-scrollbar-thumb:hover,
+.right-frame::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);      
+
+  }
+  
+  .left-frame {
+    border-right: 2px solid var(--secondary);
+    box-shadow: 5px 0 15px rgba(0, 176, 255, 0.3);
+  }
+  
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #ffffff;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    to { text-shadow: 0 0 20px rgba(0, 176, 255, 0.7), 0 0 30px rgba(98, 0, 234, 0.5); }
+  }
+  
+  nav {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem;
+    text-align: center;
+    position: sticky;
+    top: 80px;
+    z-index: 99;
+    border-bottom: 1px solid var(--secondary);
+  }
+  
+  nav a {
+    margin: 0 0.6rem;
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(0, 176, 255, 0.1);
+  }
+  
+  nav a:hover {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 145, 0, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  main {
+    max-width: 100%;
+    margin: auto;
+    padding: 2rem;
+  }
+  
+  section {
+    margin-bottom: 2.5rem;
+    background: rgba(26, 26, 46, 0.7);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(98, 0, 234, 0.2);
+    backdrop-filter: blur(5px);
+    transform: translateY(0);
+  }
+  
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(98, 0, 234, 0.3);
+  }
+  
+  section img, iframe {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    margin: 1.2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(0, 176, 255, 0.3);
+  }
+  
+  section img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 176, 255, 0.5);
+  }
+  
+  iframe {
+    height: 370px;
+  }
+  
+  h2 {
+    color: var(--secondary);
+    font-family: 'Orbitron', sans-serif;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    display: inline-block;
+  }
+  
+  table {
+    width: 92%;
+    margin: 1.5rem auto;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  th, td {
+    border: 1px solid rgba(0, 176, 255, 0.3);
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  th {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  footer {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    text-align: center;
+    padding: 1.2rem 0;
+    color: #ffffff;
+    margin-top: 2rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  ::selection {
+    background-color: var(--accent);
+    color: white;
+  }
+</style>
+  <head>
+    <title>AI Project – Frameset</title>
+    <meta charset="UTF-8">
+  </head>
+  
+
+  <frameset cols="50%,50%">
+    <frame src="research.html" name="research">
+    <frame src="daily_log.html" name="dailylog">
+    <noframes>
+      <body>
+        Your browser doesn’t support frames.  
+        <a href="research.html">Open the Research page</a> or
+        <a href="daily_log.html">open the Daily Log</a>.
+      </body>
+    </noframes>
+  </frameset>
+</html>

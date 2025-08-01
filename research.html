@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artificial Intelligence – Research Page</title>
+  <meta charset="UTF-8">
+
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Orbitron:wght@400;700&display=swap');
+  
+  :root {
+    --primary: #6200ea;
+    --secondary: #00b0ff;
+    --accent: #ff9100;
+    --dark: #121212;
+    --light: #f8f9fa;
+  }
+  
+  * {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--dark);
+    margin: 0;
+    line-height: 1.8;
+    color: var(--light);
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(98, 0, 234, 0.2) 0%, rgba(0, 176, 255, 0.2) 90%),
+      linear-gradient(135deg, #121212, #1a1a2e);
+  }
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--dark);
+}
+
+html::-webkit-scrollbar       { width: 8px; }
+html::-webkit-scrollbar-track { background: var(--dark); }
+html::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border: 2px solid var(--dark);
+  border-radius: 10px;
+}
+html::-webkit-scrollbar-thumb:hover { background-color: var(--accent); }
+
+  
+  .container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .left-frame, .right-frame {
+    width: 50%;
+    overflow-y: auto;
+    height: 100vh;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--dark);
+  }
+  
+  .left-frame {
+    border-right: 2px solid var(--secondary);
+    box-shadow: 5px 0 15px rgba(0, 176, 255, 0.3);
+  }
+  
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #ffffff;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    to { text-shadow: 0 0 20px rgba(0, 176, 255, 0.7), 0 0 30px rgba(98, 0, 234, 0.5); }
+  }
+  
+  nav {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem;
+    text-align: center;
+    position: sticky;
+    top: 80px;
+    z-index: 99;
+    border-bottom: 1px solid var(--secondary);
+  }
+  
+  nav a {
+    margin: 0 0.6rem;
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(0, 176, 255, 0.1);
+  }
+  
+  nav a:hover {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 145, 0, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  main {
+    max-width: 100%;
+    margin: auto;
+    padding: 2rem;
+  }
+  
+  section {
+    margin-bottom: 2.5rem;
+    background: rgba(26, 26, 46, 0.7);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(98, 0, 234, 0.2);
+    backdrop-filter: blur(5px);
+    transform: translateY(0);
+  }
+  
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(98, 0, 234, 0.3);
+  }
+  
+  section img, iframe {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    margin: 1.2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(0, 176, 255, 0.3);
+  }
+  
+  section img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 176, 255, 0.5);
+  }
+  
+  iframe {
+    height: 370px;
+  }
+  
+  h2 {
+    color: var(--secondary);
+    font-family: 'Orbitron', sans-serif;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    display: inline-block;
+  }
+  
+  table {
+    width: 92%;
+    margin: 1.5rem auto;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  th, td {
+    border: 1px solid rgba(0, 176, 255, 0.3);
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  th {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  footer {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    text-align: center;
+    padding: 1.2rem 0;
+    color: #ffffff;
+    margin-top: 2rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  ::selection {
+    background-color: var(--accent);
+    color: white;
+  }
+</style>
+</head>
+    <header>
+        <h1>Artificial Intelligence</h1>
+      </header>
+
+      <nav>
+        <a href="#intro">Introduction</a>
+        <a href="#history">Historical Milestones</a>
+        <a href="#subfields">Key Sub-fields</a>
+        <a href="#applications">Applications</a>
+        <a href="#ethics">Ethics &amp; Future</a>
+        <a href="#ai-essentials-video-overview">Video Overview</a>
+        <a href="#symbolic-ai-vs-machine-learning">Symbolic AI vs Machine Learning</a>
+        <a href="#steps-to-build-an-ai-solution">Steps to Build an AI Solution</a>
+        <a href="#learn-more">Learn More</a>
+      </nav>
+
+      <main>
+        <section id="intro">
+          <h2>Introduction</h2>
+          <p>
+            Artificial Intelligence (AI) encompasses computer systems designed to perform tasks that ordinarily require human cognition—such as pattern recognition, reasoning, learning, decision‑making, and natural‑language understanding. Modern AI blends vast data sets with sophisticated algorithms so that machines can perceive their environment, infer context, and take autonomous actions to achieve defined goals. Thanks to exponential growth in computing power and data availability, AI has evolved from rule‑based programs into self‑improving systems that can recognize images, translate languages, drive cars, and even generate creative content. In essence, AI promises to extend human capability by transforming raw data into actionable insight at unprecedented speed and scale.
+          </p>
+          <img src="https://thumbs.dreamstime.com/b/abstract-visualization-artificial-intelligence-digital-brain-surrounded-circuits-data-pathways-representing-348137840.jpg"
+               alt="Abstract visualization of AI brain circuits" />
+        </section>
+
+        <section id="history">
+          <h2>Historical Milestones</h2>
+          <p>
+            The formal birth of AI traces back to the 1956 Dartmouth Conference, where researchers first coined the term "Artificial Intelligence" and imagined machines that could "think." Early triumphs included the Logic Theorist (1956), which proved mathematical theorems, and ELIZA (1966), an early natural‑language chatbot. Progress accelerated in 1997 when IBM's Deep Blue defeated chess grandmaster Garry Kasparov, demonstrating brute‑force search at supercomputer scale. A new era began with machine‑learning advances: IBM Watson's 2011 victory on Jeopardy! showcased language understanding; Google DeepMind's AlphaGo stunned the world in 2016 by beating champion Lee Sedol at Go, a game long viewed as AI‑hard. Today, large language and vision models generate fluent text, photorealistic images, and code—illustrating how AI has progressed from symbolic reasoning to data‑driven "deep" learning capable of solving open‑ended tasks.
+          </p>
+          <img src="https://i.guim.co.uk/img/media/c16c31cedd1a3e1bbd9119a63842c5bd0442ca74/0_71_2038_1223/master/2038.jpg?width=620&dpr=1&s=none&crop=none"
+               alt="IBM Deep Blue supercomputer that beat Garry Kasparov" />
+        </section>
+
+        <section id="subfields">
+          <h2>Key Sub-fields</h2>
+          <p>
+            AI is an umbrella for several interlocking specialties. Machine Learning (ML) focuses on algorithms that improve through experience; its deep‑learning branch uses multi‑layer neural networks to uncover complex patterns. Natural Language Processing (NLP) enables machines to parse, generate, and translate human language. Computer Vision permits automatic extraction of meaning from images and video, making facial recognition and autonomous driving possible. Robotics integrates perception, reasoning, and actuation so that physical machines can navigate and manipulate the world. Finally, Expert Systems encode domain knowledge into rules for diagnostic or advisory purposes. Together, these sub‑fields offer complementary approaches: ML supplies data‑driven learning; symbolic methods add logical structure; and embodied robotics brings AI into the physical realm.
+          </p>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Artificial_Intelligence_%26_AI_%26_Machine_Learning_-_30212411048.jpg"
+               alt="Layers of a deep neural network representing machine learning" />
+        </section>
+
+        <section id="applications">
+          <h2>Applications</h2>
+          <p>
+           AI is already woven into daily life and industry. In healthcare, deep‑learning models detect cancers in radiology scans and predict patient deterioration hours in advance. Finance relies on AI for algorithmic trading, credit‑risk scoring, and real‑time fraud detection. Customer‑service chatbots handle millions of queries with natural‑language fluency, while recommendation engines on streaming platforms personalize content for billions of users. In agriculture, computer‑vision drones monitor crop health and optimize fertilizer use. Autonomous vehicles fuse vision, lidar, and reinforcement‑learning algorithms to navigate city streets safely. Across domains, the core advantage is AI's ability to process enormous data sets, surface subtle patterns, and make split‑second decisions, thereby unlocking efficiency and new revenue streams.
+          </p>
+          <img src="https://images.ctfassets.net/lzny33ho1g45/2olcy4TVSWAjqy5dsxLNZd/09b4a18346af97076615d5f1d1407c39/best-ai-image-generator-hero.jpg?fm=avif&q=31&fit=thumb&w=1520&h=760"
+               alt="AI chatbots" />
+        </section>
+
+        <section id="ethics">
+          <h2>Ethics &amp; Future</h2>
+          <p>
+            Rapid AI deployment raises profound ethical and societal questions. Biases embedded in training data can lead to unfair decisions in hiring, lending, or policing, necessitating rigorous fairness audits and diverse data sets. Privacy concerns intensify as models ingest personal information—from medical records to voice assistants—calling for strong governance and data‑minimization practices. Job displacement looms in routine cognitive and manual roles, underscoring the need for reskilling programs and social‑safety nets. Looking ahead, research in explainable AI aims to make "black‑box" decisions transparent, while neuromorphic hardware promises energy‑efficient brain‑like computation. Ultimately, the road to Artificial General Intelligence (AGI) will demand not only technical breakthroughs but also robust regulatory frameworks to align super‑human capabilities with human values and safety.
+          </p>
+          <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?auto=format&fit=crop&w=1350&q=80"
+               alt="Robot hand shaking human hand symbolizing AI ethics" />
+        </section>
+
+        <section id="ai-essentials-video-overview">
+          <h2>AI Essentials - Video Overview</h2>
+          <iframe
+            src="https://www.youtube.com/embed/2ePf9rue1Ao"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </section>
+
+        <section>
+          <h2>Symbolic AI vs Machine Learning</h2>
+          <table>
+            <tr>
+              <th>Aspect</th>
+              <th>Symbolic AI (Good Old-Fashioned AI)</th>
+              <th>Machine Learning / Deep Learning</th>
+            </tr>
+            <tr>
+              <td>Knowledge Representation</td>
+              <td>Explicit rules &amp; logic</td>
+              <td>Statistical patterns in data</td>
+            </tr>
+            <tr>
+              <td>Learning Method</td>
+              <td>Manual encoding by humans</td>
+              <td>Automatic parameter optimization</td>
+            </tr>
+            <tr>
+              <td>Strengths</td>
+              <td>Explainability, deterministic reasoning</td>
+              <td>Handling unstructured data, scalability</td>
+            </tr>
+            <tr>
+              <td>Typical Use-cases</td>
+              <td>Expert systems, theorem proving</td>
+              <td>Vision, speech, language processing</td>
+            </tr>
+          </table>
+        </section>
+
+        <section id="steps-to-build-an-ai-solution">
+          <h2>Steps to Build an AI Solution</h2>
+          <ol>
+            <li>Define the problem and success metrics.</li>
+            <li>Collect and clean relevant data.</li>
+            <li>Select appropriate algorithms or models.</li>
+            <li>Train, validate, and iterate on the model.</li>
+            <li>Deploy the model into a real-world environment.</li>
+            <li>Monitor performance and retrain as needed.</li>
+            <li>Address ethical, privacy, and security concerns continuously.</li>
+          </ol>
+        </section>
+
+        <section id="learn-more">
+          <h2>Learn More</h2>
+          <p>
+            Dive deeper at
+            <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" target="_blank">Wikipedia - Artificial Intelligence</a>
+            and the
+            <a href="https://aiindex.stanford.edu" target="_blank">Stanford AI Index Report</a>.
+          </p>
+        </section>
+
+        <footer>
+          &copy; Krish Modi, 2025-07-28
+        </footer>
+</html>

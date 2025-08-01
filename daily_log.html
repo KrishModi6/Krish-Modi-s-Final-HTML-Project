@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Log – Cookie‑Clicker Scratch Project</title>
+  <meta charset="UTF-8">
+
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&family=Orbitron:wght@400;700&display=swap');
+  
+  :root {
+    --primary: #6200ea;
+    --secondary: #00b0ff;
+    --accent: #ff9100;
+    --dark: #121212;
+    --light: #f8f9fa;
+  }
+  
+  * {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background: var(--dark);
+    margin: 0;
+    line-height: 1.8;
+    color: var(--light);
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(98, 0, 234, 0.2) 0%, rgba(0, 176, 255, 0.2) 90%),
+      linear-gradient(135deg, #121212, #1a1a2e);
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .left-frame, .right-frame {
+    width: 50%;
+    overflow-y: auto;
+    height: 100vh;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--dark);
+  }
+  
+  .left-frame {
+    border-right: 2px solid var(--secondary);
+    box-shadow: 5px 0 15px rgba(0, 176, 255, 0.3);
+  }
+  
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #ffffff;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    to { text-shadow: 0 0 20px rgba(0, 176, 255, 0.7), 0 0 30px rgba(98, 0, 234, 0.5); }
+  }
+  
+  nav {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem;
+    text-align: center;
+    position: sticky;
+    top: 80px;
+    z-index: 99;
+    border-bottom: 1px solid var(--secondary);
+  }
+  
+  nav a {
+    margin: 0 0.6rem;
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(0, 176, 255, 0.1);
+  }
+  
+  nav a:hover {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 145, 0, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  main {
+    max-width: 100%;
+    margin: auto;
+    padding: 2rem;
+  }
+  
+  section {
+    margin-bottom: 2.5rem;
+    background: rgba(26, 26, 46, 0.7);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(98, 0, 234, 0.2);
+    backdrop-filter: blur(5px);
+    transform: translateY(0);
+  }
+  
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(98, 0, 234, 0.3);
+  }
+  
+  section img, iframe {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    margin: 1.2rem auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(0, 176, 255, 0.3);
+  }
+  
+  section img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 176, 255, 0.5);
+  }
+  
+  iframe {
+    height: 370px;
+  }
+  
+  h2 {
+    color: var(--secondary);
+    font-family: 'Orbitron', sans-serif;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    display: inline-block;
+  }
+  
+  table {
+    width: 92%;
+    margin: 1.5rem auto;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  th, td {
+    border: 1px solid rgba(0, 176, 255, 0.3);
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  th {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  footer {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    text-align: center;
+    padding: 1.2rem 0;
+    color: #ffffff;
+    margin-top: 2rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  ::selection {
+    background-color: var(--accent);
+    color: white;
+  }
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--dark);
+}
+
+html::-webkit-scrollbar       { width: 8px; }
+html::-webkit-scrollbar-track { background: var(--dark); }
+html::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border: 2px solid var(--dark);
+  border-radius: 10px;
+}
+html::-webkit-scrollbar-thumb:hover { background-color: var(--accent); }
+</style>
+</head>
+
+<body>
+       <header>
+        <h1>Daily log</h1>
+      </header>
+
+      <main>
+        <section>
+          <h2>Cookie Clicker Scratch Project</h2>
+          <p>
+            This project is a simple clicker game inspired by the popular Cookie Clicker game. The goal is to create a fun and engaging experience where players can click to earn points and unlock rewards. Here is the link: <a href="https://scratch.mit.edu/projects/1202335217/">Cookie Clicker Scratch Project</a>.
+          </p>
+        <section>
+          <h2>Inspiration and UI Design</h2>
+          <p>
+I thought of a clicking game to create as I used to play a game called cookie clicker a lot. I want to implement a simple version of it on scratch.
+          </p>
+<img src="download%20(3).jpg"
+     alt="Cookie Clicker screenshot"
+     style="max-width:100%; height:auto;">
+    
+
+          <p>
+I then start designing the game UI, focusing on the main clicking area and the incremental rewards system.
+          </p>
+        
+<img src="download%20(4).jpg"
+     alt="UI design"
+     style="max-width:100%; height:auto;">
+
+<img src="download%20(5).jpg"
+     alt="UI design"
+     style="max-width:100%; height:auto;">
+
+<img src="download%20(6).jpg"
+     alt="UI design"
+     style="max-width:100%; height:auto;">
+
+<img src="download%20(7).jpg"
+     alt="UI design"
+     style="max-width:100%; height:auto;">  
+
+<img src="download%20(8).jpg"
+     alt="UI design"
+     style="max-width:100%; height:auto;">  
+
+<img src="download%20(9).jpg"
+     alt="UI design"
+     style="max-width:100%; height:auto;">  
+
+<img src="download%20(10).jpg"
+     alt="UI design"
+     style="max-width:100%; height:auto;">
+
+<img src="download%20(11).jpg"
+     alt="UI design"
+     style="max-width:100%; height:auto;">
+
+     <img src="download%20(12).jpg"
+     alt="UI design"
+     style="max-width:100%; height:auto;">
+
+        </section>
+
+        <section>
+          <h2>Code Implementation</h2>
+          <p>
+I began by coding the basic mechanics of the game, including the click counter and reward system.
+          </p>
+<img src="download%20(13).jpg"
+     alt="Code implementation"
+     style="max-width:100%; height:auto;">
+     <p>
+I implemented the click event that increments the score and updates the UI accordingly.
+          </p>
+<img src="download%20(14).jpg"
+     alt="Code implementation"
+     style="max-width:100%; height:auto;">
+          <p>
+I added a simple reward system that grants bonuses for reaching certain milestones, enhancing the gameplay experience.
+
+          </p>
+<img src="download%20(15).jpg"
+     alt="Code implementation"
+     style="max-width:100%; height:auto;">
+
+I then worked on the visual feedback for clicks, ensuring that each click feels satisfying and rewarding and added a grand prize in the end by getting the orange apple.
+          </p>
+<img src="download%20(16).jpg"
+     alt="Code implementation"
+     style="max-width:100%; height:auto;">
+     <p>
+I implemented a final animation for the grand prize, making it a memorable moment for players. 
+<img src="download%20(17).jpg"
+     alt="Code implementation"
+     style="max-width:100%; height:auto;">
+          </p>
+          <p>
+I also added sound effects to enhance the user experience, making each click and reward feel more engaging.
+          </p>
+<img src="download%20(18).jpg"
+     alt="Code implementation"
+     style="max-width:100%; height:auto;">
+          <p>
+I tested the game thoroughly, ensuring that all mechanics worked as intended and that the UI was responsive and intuitive. After server test sessions I made final adjustments to the UI and code, ensuring everything was polished and ready for release and officially completed this project.
+          </p>
+</section>
+        <section>
+          <h2>Reflection</h2>
+          <p>
+            This project was a great learning experience, allowing me to apply my UI design skills and coding knowledge in a practical way. I enjoyed the process of creating a simple yet engaging game that can be expanded in the future.
+          </p>
+          <p>
+            I look forward to sharing this project with others and possibly expanding it with more features in the future.
+          </p>
+<footer>
+  &copy; Krish Modi, 2025-07-28
+</footer>
+</body>
+</html>
